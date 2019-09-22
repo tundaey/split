@@ -1,0 +1,20 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t tundaey/split -f ./client/Dockerfile.dev ./client
+
+scripts:
+  - docker run tundaey/split npm run test -- --coverage
+
+after_success:
+  - docker build -t tundaey/split-client ./client
+  - docker build -t tundaey/split-nginx ./nginx
+  - docker build -t tundaey/split-server ./server
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take all the images built and push to docker hub
+  - docker push tundaey/split-client
+  - docker push tundaey/split-nginx
+  - docker push tundaey/split-server
