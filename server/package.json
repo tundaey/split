@@ -1,0 +1,30 @@
+{
+  "name": "side-project-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "and": "^0.0.3",
+    "apollo-server-express": "^2.8.1",
+    "babel": "^6.23.0",
+    "dependencies": "^0.0.1",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "graphql": "^14.4.2",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.15.0",
+    "sequelize-cli": "^5.5.0",
+    "sqlite3": "^4.0.9",
+    "nodemon": "1.19.1"
+  }
+}
