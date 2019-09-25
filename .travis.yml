@@ -18,3 +18,17 @@ after_success:
   - docker push tundaey/split-client
   - docker push tundaey/split-nginx
   - docker push tundaey/split-server
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-west-2
+  app: split
+  env: Split-env
+  bucket_name: elasticbeanstalk-us-west-2-227599607936
+  bucket_path: splitapp
+  on:
+    branch: master
+  access_key_id:
+    secure: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
