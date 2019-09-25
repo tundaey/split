@@ -1,3 +1,7 @@
+$color-primary : hsl(205, 87%, 29%);
+$color-primary-dark : hsl(205, 100%, 21%);
+$color-primary-light : hsl(205, 76%, 39%);
+
 * {
   margin: 0;
   padding: 0;
@@ -21,9 +25,9 @@ body {
 .Nav{
   display: flex;
   align-items: center;
-  height: 7rem;
+  height: 6rem;
   font-size: 1.4rem;
-  border-bottom: 1px solid grey;
+  // border-bottom: 1px solid grey;
 
   &__logo {
     margin-right: auto;
@@ -32,6 +36,65 @@ body {
   &__center {
     list-style: none;
     display: flex;
+    flex: 0 0 50rem;
     margin-right: auto;
+    justify-content: space-between;
+    color: $color-primary-dark;
+    font-weight: 600;
+  }
+
+  &__action {
+    margin-right: 3rem;
+  }
+
+  &__user-photo {
+    height: 3.75rem;
+    border-radius: 50%;
+    margin-right: 2rem;
+  }
+}
+
+.Button {
+  display: inline-block;
+  background-color: $color-primary;
+  color: #fff;
+  padding: 0.5rem 2rem;
+  border-radius: 10rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+
+  &__small {
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid $color-primary;
+    padding: 0.2rem 0.8rem;
+    background-color: $color-primary-dark;
+    width: 7rem;
+  }
+}
+
+.Summary {
+  height: 13rem;
+  background-color: $color-primary;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  /* top | right | bottom | left */
+  padding: 2rem 32rem 2em 15rem;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &--label{
+      text-transform: uppercase;
+      font-size: 1rem;
+    }
+
+    &--value{
+      font-size: 3rem;
+      font-weight: 300;
+    }
   }
 }
