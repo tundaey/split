@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "NODE_ENV=development parcel src/public/index.html",
-    "build": "NODE_ENV=production parcel build src/public/index.html"
+    "build": "NODE_ENV=production parcel build src/public/index.html",
+    "lint": "eslint \"src/**/*.ts\""
   },
   "jest": {
     "setupFiles": [
@@ -25,6 +26,13 @@
     "@babel/preset-react": "^7.0.0",
     "@testing-library/react": "^8.0.4",
     "babel-jest": "^24.8.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "jest": "^24.8.0",
     "jest-dom": "^3.5.0",
     "parcel": "^1.12.3",
@@ -35,7 +43,13 @@
   },
   "dependencies": {
     "@types/react": "^16.9.5",
+    "@typescript-eslint/eslint-plugin": "^2.3.3",
+    "@typescript-eslint/parser": "^2.3.3",
     "classnames": "^2.2.6",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.18.2",
     "prop-types": "^15.7.2",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",

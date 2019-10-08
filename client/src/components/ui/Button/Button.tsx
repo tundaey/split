@@ -4,12 +4,12 @@ import right from '../../../icons/SVG/chevron-right.svg';
 import './_button.scss';
 
 interface IProps {
-  children: ReactNode
-  small?: boolean
+  children: ReactNode;
+  small?: boolean;
 }
 
 const Button = (props: IProps) => {
-  if(props.small) {
+  if (props.small) {
     return (
       <a className="Button Button__small" href="#">
         View all
@@ -17,7 +17,7 @@ const Button = (props: IProps) => {
           <use xlinkHref={right}></use>
         </svg>
       </a>
-    )
+    );
   }
   return (
     <a className="Button" href="#">
@@ -26,7 +26,7 @@ const Button = (props: IProps) => {
       </svg>
       {props.children}
     </a>
-  )
+  );
 };
 
 export default Button;
