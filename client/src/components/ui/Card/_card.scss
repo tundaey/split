@@ -1,0 +1,69 @@
+@import '../../../app.scss';
+
+.Card {
+  border: 1.5px solid hsl(210, 36%, 96%);
+  border-radius: 0.8rem;
+  box-shadow: 0 3px 0 0 hsl(210, 36%, 96%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30rem;
+  height: 15rem;
+  font-size: 1.4rem;
+  &:not(:last-child) {
+    margin-right: 1em;
+  }
+
+  &__status {
+    text-transform: capitalize;
+    height: 2rem;
+    padding: 0 1rem;
+    border-radius: 1rem;
+    &--warning {
+      background-color: #F9EDC7;
+      color: #63321C;
+    }
+
+    &--error {
+      background-color: #FFE0E0;
+      color: #6F2323;
+    }
+
+    &--success {
+      background-color: #D2F0CD;
+      color: #153311;
+    }
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    &--name {
+      color: #000;
+      font-weight: 600;
+      font-size: 1.6rem;
+    }
+    &--amount {
+      font-size: 3rem;
+      color: $color-primary-dark;
+    }
+    &--due {
+      color: hsl(209, 23%, 60%);
+    }
+
+  }
+  &__action {
+    background-color: hsl(210, 36%, 96%);
+    height: 3rem;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &--icon {
+      height: 1.5rem;
+      width: 1.5rem;
+      margin-right: 0.5rem;
+    }
+  }
+}

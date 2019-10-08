@@ -1,0 +1,37 @@
+@import '../../app.scss';
+
+.Nav{
+  display: flex;
+  align-items: center;
+  height: 6rem;
+  font-size: 1.4rem;
+  // border-bottom: 1px solid grey;
+
+  &__logo {
+    margin-right: auto;
+    margin-left: 5rem;
+    img {
+      height: 5rem;
+    }
+  }
+
+  &__center {
+    list-style: none;
+    display: flex;
+    flex: 0 0 50rem;
+    margin-right: auto;
+    justify-content: space-between;
+    color: $color-primary-dark;
+    font-weight: 600;
+  }
+
+  &__action {
+    margin-right: 3rem;
+  }
+
+  &__user-photo {
+    height: 3.75rem;
+    border-radius: 50%;
+    margin-right: 2rem;
+  }
+}

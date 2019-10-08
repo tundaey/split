@@ -1,0 +1,15 @@
+@import '../../app.scss';
+
+.Recent-Transactions {
+  margin: 4rem 25rem;
+
+  &__title {
+    font-size: 2rem;
+    color: $color-primary-dark;
+  }
+
+  &__body {
+    display: flex;
+    margin-top: 1rem;
+  }
+}

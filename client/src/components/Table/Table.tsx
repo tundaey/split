@@ -1,9 +1,17 @@
 import React from 'react';
-import { useTable } from 'react-table';
-import './app.scss';
+import { useTable, Column } from 'react-table';
+import './_table.scss';
 
-const Table = ({ columns, data }) => {
-  console.log('columns', columns)
+interface IProps {
+  columns: Array<Column<Data>>
+  data: Array<Data>
+}
+
+interface Data {
+
+}
+
+const Table = ({ columns, data }: IProps) => {
   // Use the state and functions returned from useTable to build your UI
   const { getTableProps, headerGroups, rows, prepareRow } = useTable({
     columns,

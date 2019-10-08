@@ -1,0 +1,39 @@
+
+.Table {
+  table {
+    border-spacing: 0;
+    border: 1px solid hsl(210, 36%, 96%);
+
+    thead {
+      border-top-left-radius: 30rem;
+      border-top-right-radius: 30rem;
+      border-radius: 50px;
+    }
+    tr {
+      &:last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+    }
+
+    th,
+    td {
+      margin: 0;
+      padding: 0.5rem;
+      border-bottom: 1px solid hsl(210, 36%, 96%);
+      padding: 1rem 2rem;
+
+      :last-child {
+        border-bottom: 0;
+      }
+    }
+
+    th {
+      text-transform: uppercase;
+      background-color: hsl(210, 36%, 96%);
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+    }
+  }
+}
