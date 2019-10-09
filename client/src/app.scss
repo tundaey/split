@@ -1,13 +1,16 @@
-$color-primary : hsl(205, 87%, 29%);
-$color-primary-dark : hsl(205, 100%, 21%);
-$color-primary-light : hsl(204, 54%, 39%);
+$color-primary: hsl(205, 87%, 29%);
+$color-primary-dark: hsl(205, 100%, 21%);
+$color-primary-light: hsl(204, 54%, 39%);
+$color-light-grey: hsl(210, 36%, 96%);
 
 * {
   margin: 0;
   padding: 0;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -25,12 +28,10 @@ body {
   line-height: 1.6;
 }
 
-
 .Header {
   font-size: 2rem;
   color: $color-primary-dark;
 }
-
 
 .Transactions {
   margin: 4rem 25rem;
@@ -40,4 +41,3 @@ body {
     color: $color-primary-dark;
   }
 }
-

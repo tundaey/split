@@ -1,9 +1,9 @@
 @import '../../../app.scss';
 
 .Card {
-  border: 1.5px solid hsl(210, 36%, 96%);
+  border: 1.5px solid $color-light-grey;
   border-radius: 0.8rem;
-  box-shadow: 0 3px 0 0 hsl(210, 36%, 96%);
+  box-shadow: 0 3px 0 0 $color-light-grey;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -20,17 +20,17 @@
     padding: 0 1rem;
     border-radius: 1rem;
     &--warning {
-      background-color: #F9EDC7;
-      color: #63321C;
+      background-color: #f9edc7;
+      color: #63321c;
     }
 
     &--error {
-      background-color: #FFE0E0;
-      color: #6F2323;
+      background-color: #ffe0e0;
+      color: #6f2323;
     }
 
     &--success {
-      background-color: #D2F0CD;
+      background-color: #d2f0cd;
       color: #153311;
     }
   }
@@ -51,10 +51,9 @@
     &--due {
       color: hsl(209, 23%, 60%);
     }
-
   }
   &__action {
-    background-color: hsl(210, 36%, 96%);
+    background-color: $color-light-grey;
     height: 3rem;
     padding: 1rem 2rem;
     display: flex;

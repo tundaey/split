@@ -1,8 +1,7 @@
 import React from 'react';
+import { Router } from '@reach/router';
 import './app.scss';
 import userImg from './tee.jpeg';
-import right from './icons/SVG/chevron-right.svg';
-import logo from './splitlogo.png';
 import Table from './components/Table/Table';
 import Nav from './components/Nav/Nav';
 import Summary from './components/Summary/Summary';
@@ -98,9 +97,12 @@ const data: Data[] = [
   },
 ];
 
-const App = () => (
-  <div>
-    <Nav />
+interface IProps {
+  path?: string;
+}
+
+const Dashboard = (props: IProps) => (
+  <React.Fragment>
     <Summary />
     <RecentTransactions />
     <div>
@@ -109,7 +111,19 @@ const App = () => (
         <Table columns={columns} data={data} />
       </div>
     </div>
-  </div>
+  </React.Fragment>
+);
+
+const Provider = (props: IProps) => <div>create provider</div>;
+
+const App = () => (
+  <React.Fragment>
+    <Nav />
+    <Router>
+      <Dashboard path="/" />
+      <Provider path="/provider" />
+    </Router>
+  </React.Fragment>
 );
 
 export default App;
