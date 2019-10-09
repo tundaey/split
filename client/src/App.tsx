@@ -14,7 +14,7 @@ const columns = [
     accessor: 'img',
     Cell: ({ row }) => (
       <div>
-        <img className="Nav__user-photo" src={userImg}/>
+        <img className="Nav__user-photo" src={userImg} />
       </div>
     ),
   },
@@ -41,13 +41,13 @@ const columns = [
 ];
 
 interface Data {
-  img: string,
-  name: string,
-  id: string,
-  date: string,
-  due_date: string,
-  amount: string,
-  status: string,
+  img: string;
+  name: string;
+  id: string;
+  date: string;
+  due_date: string;
+  amount: string;
+  status: string;
 }
 
 const data: Data[] = [
@@ -96,13 +96,13 @@ const data: Data[] = [
     amount: '3000',
     status: 'pending',
   },
-]
+];
 
 const App = () => (
   <div>
-    <Nav/>
-    <Summary/>
-    <RecentTransactions/>
+    <Nav />
+    <Summary />
+    <RecentTransactions />
     <div>
       <div className="Transactions">
         <p>All Transactions</p>
@@ -110,6 +110,6 @@ const App = () => (
       </div>
     </div>
   </div>
-)
+);
 
 export default App;
