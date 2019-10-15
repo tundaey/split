@@ -6,6 +6,7 @@ import Table from './components/Table/Table';
 import Nav from './components/Nav/Nav';
 import Summary from './components/Summary/Summary';
 import RecentTransactions from './components/RecentTransactions/RecentTransactions';
+import Signup from './components/Auth/Signup';
 
 const columns = [
   {
@@ -97,11 +98,11 @@ const data: Data[] = [
   },
 ];
 
-interface IProps {
+export interface RouteProps {
   path?: string;
 }
 
-const Dashboard = (props: IProps) => (
+const Dashboard = (props: RouteProps) => (
   <React.Fragment>
     <Summary />
     <RecentTransactions />
@@ -114,16 +115,26 @@ const Dashboard = (props: IProps) => (
   </React.Fragment>
 );
 
-const Provider = (props: IProps) => <div>create provider</div>;
+const Provider = (props: RouteProps) => <div>create provider</div>;
 
-const App = () => (
+const WithNavBar = ({ Component, ...props }) => (
   <React.Fragment>
     <Nav />
-    <Router>
-      <Dashboard path="/" />
-      <Provider path="/provider" />
-    </Router>
+    <Component {...props} />
   </React.Fragment>
 );
+
+const App = () => {
+  // const WithNavBar = withNavBar(Dashboard);
+  return (
+    <React.Fragment>
+      <Router>
+        <WithNavBar Component={Dashboard} path="/" />
+        <Provider path="/provider" />
+        <Signup path="/register" />
+      </Router>
+    </React.Fragment>
+  );
+};
 
 export default App;

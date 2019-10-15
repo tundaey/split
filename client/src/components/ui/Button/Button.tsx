@@ -26,9 +26,9 @@ const Button = (props: IProps) => {
   }
   return (
     <a onClick={onClick} className="Button" href="#">
-      <svg className="Button__icon">
+      {/* <svg className="Button__icon">
         <use xlinkHref={plus}></use>
-      </svg>
+      </svg> */}
       {props.children}
     </a>
   );

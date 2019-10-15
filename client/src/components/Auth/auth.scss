@@ -1,0 +1,14 @@
+@import '../../app.scss';
+
+.AuthForm {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.Auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
