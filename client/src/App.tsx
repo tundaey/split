@@ -1,5 +1,6 @@
 import React from 'react';
 import { Router } from '@reach/router';
+
 // import './app.scss';
 import userImg from './tee.jpeg';
 import Table from './components/Table/Table';
@@ -7,6 +8,7 @@ import Nav from './components/Nav/Nav';
 import Summary from './components/Summary/Summary';
 import RecentTransactions from './components/RecentTransactions/RecentTransactions';
 import Signup from './components/Auth/Signup';
+import Login from './components/Auth/Login';
 
 const columns = [
   {
@@ -132,6 +134,7 @@ const App = () => {
         <WithNavBar Component={Dashboard} path="/" />
         <Provider path="/provider" />
         <Signup path="/register" />
+        <Login path="/login" />
       </Router>
     </React.Fragment>
   );

@@ -3,7 +3,25 @@
 .AuthForm {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 300px;
+  &__header {
+    color: $color-primary;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  &__sub-header {
+    font-size: 1.6rem;
+    color: #5d7079;
+  }
+  &__sub-link {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    color: #676d70;
+    a {
+      text-decoration: none;
+      color: $color-primary-dark;
+    }
+  }
 }
 
 .Auth {

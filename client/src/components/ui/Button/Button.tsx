@@ -7,6 +7,7 @@ interface IProps {
   children: ReactNode;
   small?: boolean;
   onClick?(): any;
+  disabled?: boolean;
 }
 
 const Button = (props: IProps) => {
@@ -25,12 +26,16 @@ const Button = (props: IProps) => {
     );
   }
   return (
-    <a onClick={onClick} className="Button" href="#">
+    <button
+      disabled={props.disabled}
+      onClick={onClick}
+      className={`Button ${props.disabled ? 'Button__disabled' : ''}`}
+    >
       {/* <svg className="Button__icon">
         <use xlinkHref={plus}></use>
       </svg> */}
       {props.children}
-    </a>
+    </button>
   );
 };
 
