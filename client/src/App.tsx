@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router } from '@reach/router';
-import './app.scss';
+// import './app.scss';
 import userImg from './tee.jpeg';
 import Table from './components/Table/Table';
 import Nav from './components/Nav/Nav';

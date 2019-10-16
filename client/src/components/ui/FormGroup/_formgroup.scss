@@ -1,0 +1,10 @@
+.FormGroup {
+  display: flex;
+  flex-direction: column;
+  padding: 0.2rem;
+  margin: 0.5rem 0;
+  label {
+    text-transform: capitalize;
+    font-size: 1.4rem;
+  }
+}

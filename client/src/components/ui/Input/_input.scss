@@ -1,0 +1,22 @@
+@import '../../../app.scss';
+@import '../utils.scss';
+.Input {
+  @include reset;
+  &__text {
+    height: 4rem;
+    width: 30rem;
+    font-size: 1.4rem;
+    border: 1.2px solid #e2e8f0;
+    border-radius: 0.3rem;
+    // font: inherit;
+    font-family: proxima-nova, sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
+    padding: 1rem;
+    &:focus {
+      outline: 0.3px solid $color-primary;
+      border-radius: 0.3rem;
+      padding: 1rem;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@mixin reset {
+  @if global-variable-exists(css--reset) == false or $css--reset == false {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+
+    & > *,
+    & > *:before,
+    & > *:after {
+      box-sizing: inherit;
+    }
+  }
+}
