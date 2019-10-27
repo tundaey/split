@@ -7,7 +7,23 @@ const typeDefs = require("./schema");
 const resolvers = require("./resolvers");
 const models = require("./models");
 
-const server = new ApolloServer({ typeDefs, resolvers, context: { models } });
+const jwt = require('express-jwt')
+
+const auth = jwt({
+  secret: process.env.JWT_SECRET,
+  credentialsRequired: false
+})
+const server = new ApolloServer({ 
+  typeDefs, 
+  resolvers,
+  context: ({ req }) => {
+    const token = req.headers.authorization || ''
+    const user = models.User.findOne({
+      where: { email }
+    });
+    return { models }
+  } 
+});
 const app = express();
 server.applyMiddleware({ app });
 models.sequelize.authenticate();
