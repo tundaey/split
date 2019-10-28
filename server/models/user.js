@@ -1,3 +1,5 @@
+import bcrypt from 'bcrypt';
+
 const user = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     username: {
@@ -6,6 +8,23 @@ const user = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notEmpty: true,
+      },
+    },
+    email: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true,
+      },
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        len: [7, 42],
       },
     },
   });
@@ -18,10 +37,19 @@ const user = (sequelize, DataTypes) => {
     });
     if (!loginUser) {
       loginUser = await User.findOne({
-        where: { emaail: login },
+        where: { email: login },
       });
     }
     return loginUser;
+  };
+  User.beforeCreate(async userToBeCreated => {
+    user.password = await userToBeCreated.generatePasswordHash();
+  });
+
+  User.prototype.generatePasswordHash = async function() {
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(this.password, saltRounds);
+    return hashedPassword;
   };
   return User;
 };

@@ -5,10 +5,14 @@ const resolvers = {
   },
   Mutation: {
     createRecipient: async (parent, { name }, { me, models }) => {
-      return models.Recipient.create({
-        name,
-        userId: me.id,
-      });
+      try {
+        return models.Recipient.create({
+          name,
+          userId: me.id,
+        });
+      } catch (error) {
+        throw new Error(error);
+      }
     },
     deleteRecipient: async (parent, { id }, { models }) => {
       return models.Message.destroy({ where: { id } });

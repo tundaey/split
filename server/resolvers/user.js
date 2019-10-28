@@ -1,3 +1,13 @@
+import jwt from 'jsonwebtoken';
+
+const TOKEN_EXPIRES_IN = '30m';
+const createToken = async (user, secret, expiresIn) => {
+  const { id, email, username } = user;
+  return jwt.sign({ id, email, username }, secret, {
+    expiresIn,
+  });
+};
+
 const resolvers = {
   Query: {
     me: async (parent, args, { me, models }) => {
@@ -8,6 +18,16 @@ const resolvers = {
     },
     users: async (parent, args, { models }) => {
       return models.User.findAll();
+    },
+  },
+  Mutation: {
+    signUp: async (parent, { username, email, password }, { models, secret }) => {
+      const user = await models.User.create({
+        username,
+        email,
+        password,
+      });
+      return { token: createToken(user, secret, TOKEN_EXPIRES_IN) };
     },
   },
   User: {

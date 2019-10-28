@@ -22,6 +22,7 @@ services:
       - PGDATABASE=postgres
       - PGPASSWORD=postgres_password
       - PGPORT=5432
+      - SECRET=wr3r23fwfwefwekwself.2456342.dawqdq
     ports:
       - "4000:4000"
   client:

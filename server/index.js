@@ -12,13 +12,14 @@ app.use(cors());
 const server = new ApolloServer({
   typeDefs: schema,
   resolvers,
-  context: {
-    models,
-  },
-  // context: async () => ({
+  // context: {
   //   models,
-  //   me: await models.User.findByLogin('tunde'),
-  // }),
+  // },
+  context: async () => ({
+    models,
+    // me: models.User.findByLogin('tunde'),
+    secret: process.env.SECRET,
+  }),
 });
 
 const port = 4000;
