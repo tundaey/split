@@ -1,10 +1,13 @@
+import { combineResolvers } from 'graphql-resolvers';
+import isAuthenticated from './authorization';
+
 const resolvers = {
   Query: {
     recipients: async (parent, args, { models }) => models.Recipient.findAll(),
     recipient: async (parent, { id }, { models }) => models.Recipient.findByPk(id),
   },
   Mutation: {
-    createRecipient: async (parent, { name }, { me, models }) => {
+    createRecipient: combineResolvers(isAuthenticated, async (parent, { name }, { me, models }) => {
       try {
         return models.Recipient.create({
           name,
@@ -13,7 +16,7 @@ const resolvers = {
       } catch (error) {
         throw new Error(error);
       }
-    },
+    }),
     deleteRecipient: async (parent, { id }, { models }) => {
       return models.Message.destroy({ where: { id } });
     },

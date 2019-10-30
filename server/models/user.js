@@ -28,9 +28,11 @@ const user = (sequelize, DataTypes) => {
       },
     },
   });
+
   User.associate = models => {
     User.hasMany(models.Recipient, { onDelete: 'CASCADE' });
   };
+
   User.findByLogin = async login => {
     let loginUser = await User.findOne({
       where: { username: login },
@@ -42,14 +44,19 @@ const user = (sequelize, DataTypes) => {
     }
     return loginUser;
   };
+
   User.beforeCreate(async userToBeCreated => {
-    user.password = await userToBeCreated.generatePasswordHash();
+    userToBeCreated.password = await userToBeCreated.generatePasswordHash(); // eslint-disable-line
   });
 
   User.prototype.generatePasswordHash = async function() {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(this.password, saltRounds);
     return hashedPassword;
+  };
+
+  User.prototype.validatePassword = async function(password) {
+    return bcrypt.compare(password, this.password);
   };
   return User;
 };
