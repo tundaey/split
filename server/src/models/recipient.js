@@ -4,6 +4,7 @@ const recipient = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: { notEmpty: true },
     },
+    UserId: DataTypes.INTEGER,
   });
   Recipient.associate = models => {
     Recipient.belongsTo(models.User);

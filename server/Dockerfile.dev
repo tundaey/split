@@ -1,7 +1,11 @@
-From node:alpine
-WORKDIR "/app"
-COPY ./package.json ./
-RUN apk --no-cache add --virtual builds-deps build-base python
-COPY . .
+FROM node:10-alpine
+
+WORKDIR '/app'
+
+COPY ./package.json .
+
+# RUN apk --no-cache add --virtual builds-deps build-base python
 RUN npm install
+# RUN npm i graphql-resolvers
+COPY . .
 CMD ["npm", "run", "dev"]

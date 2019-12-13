@@ -2,6 +2,8 @@ version: "3"
 services:
   postgres:
     image: "postgres:latest"
+    ports:
+      - "54320:5432"
   nginx:
     restart: always
     build:
@@ -14,14 +16,14 @@ services:
       dockerfile: Dockerfile.dev
       context: ./server
     volumes:
-      - /app/node_modules
-      - ./server:/app
+      # - /app/node_modules
+      - ./server/src:/app/src
     environment:
       - PGUSER=postgres
       - PGHOST=postgres
       - PGDATABASE=postgres
       - PGPASSWORD=postgres_password
-      - PGPORT=5432
+      - PGPORT=54320
       - SECRET=wr3r23fwfwefwekwself.2456342.dawqdq
     ports:
       - "4000:4000"

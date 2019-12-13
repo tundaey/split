@@ -1,4 +1,4 @@
-import { gql } from "apollo-server-express";
+import { gql } from 'apollo-server-express';
 
 export default gql`
   extend type Query {
@@ -15,5 +15,6 @@ export default gql`
     id: ID!
     name: String!
     user: User!
+    createdAt: Date!
   }
 `;

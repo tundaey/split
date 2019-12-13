@@ -1,5 +1,5 @@
 import { combineResolvers } from 'graphql-resolvers';
-import isAuthenticated from './authorization';
+import { isAuthenticated, isRecipientOwner } from './authorization';
 
 const resolvers = {
   Query: {
@@ -17,13 +17,17 @@ const resolvers = {
         throw new Error(error);
       }
     }),
-    deleteRecipient: async (parent, { id }, { models }) => {
-      return models.Message.destroy({ where: { id } });
-    },
+    deleteRecipient: combineResolvers(
+      isAuthenticated,
+      isRecipientOwner,
+      async (parent, { id }, { models }) => {
+        return models.Message.destroy({ where: { id } });
+      }
+    ),
   },
   Recipient: {
     user: async (recipient, args, { models }) => {
-      return models.User.findByPk(recipient.userId);
+      return models.User.findByPk(recipient.UserId);
     },
   },
 };

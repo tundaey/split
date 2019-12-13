@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 const user = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
@@ -26,6 +26,9 @@ const user = (sequelize, DataTypes) => {
         notEmpty: true,
         len: [7, 42],
       },
+    },
+    role: {
+      type: DataTypes.STRING,
     },
   });
 
